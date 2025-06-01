@@ -1,0 +1,19 @@
+// src/Main.java
+import controller.GameController;
+import model.Pile;
+import model.Card;
+
+public class Main {
+    public static void main(String[] args) {
+        GameController game = new GameController();
+        Pile[] tableau = game.getTableau();
+
+        for (int i = 0; i < tableau.length; i++) {
+            System.out.print("Pile " + (i + 1) + ": ");
+            for (Card card : tableau[i].getCards()) {
+                System.out.print(card + " | ");
+            }
+            System.out.println();
+        }
+    }
+}
