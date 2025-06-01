@@ -1,0 +1,32 @@
+// src/model/Pile.java
+package model;
+
+import java.util.Stack;
+
+public class Pile {
+    private final Stack<Card> cards = new Stack<>();
+
+    public void addCard(Card c) {
+        cards.push(c);
+    }
+
+    public Card peek() {
+        return cards.isEmpty() ? null : cards.peek();
+    }
+
+    public Card removeTopCard() {
+        return cards.isEmpty() ? null : cards.pop();
+    }
+
+    public boolean isEmpty() {
+        return cards.isEmpty();
+    }
+
+    public int size() {
+        return cards.size();
+    }
+
+    public Stack<Card> getCards() {
+        return cards;
+    }
+}
