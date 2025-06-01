@@ -1,0 +1,30 @@
+// src/controller/GameController.java
+package controller;
+
+import model.*;
+
+public class GameController {
+    private final Deck deck = new Deck();
+    private final Pile[] tableau = new Pile[7];
+
+    public GameController() {
+        for (int i = 0; i < 7; i++) {
+            tableau[i] = new Pile();
+        }
+        dealInitialCards();
+    }
+
+    private void dealInitialCards() {
+        for (int i = 0; i < 7; i++) {
+            for (int j = 0; j <= i; j++) {
+                Card card = deck.draw();
+                tableau[i].addCard(card);
+                if (j == i) card.flip(); // Top card face up
+            }
+        }
+    }
+
+    public Pile[] getTableau() {
+        return tableau;
+    }
+}
